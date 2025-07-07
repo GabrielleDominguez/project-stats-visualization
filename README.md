@@ -183,4 +183,34 @@ Thank you for visiting!
   <a href="https://www.linkedin.com/in/gabrielle-r-dominguez" style="text-decoration: none;">
     <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="20" height="20" style="vertical-align: middle;">
   </a>
-</span>
+
+  ---
+
+<script>
+function updateMetaTag(property, content, attribute = 'property') {
+  if (!content) return;
+  let metaTag = document.querySelector(`meta[${attribute}="${property}"]`);
+  if (!metaTag) {
+    metaTag = document.createElement('meta');
+    metaTag.setAttribute(attribute, property);
+    document.head.appendChild(metaTag);
+  }
+  metaTag.setAttribute('content', content);
+}
+
+const imageURL = 'https://raw.githubusercontent.com/GabrielleDominguez/project-stats-visualization/main/linkedin-header-v2.png';
+
+updateMetaTag('og:title', title);
+updateMetaTag('og:description', description);
+updateMetaTag('og:image', imageURL);
+updateMetaTag('og:url', currentURL);
+updateMetaTag('twitter:title', title);
+updateMetaTag('twitter:description', description);
+updateMetaTag('twitter:image', imageURL);
+
+if (title) document.title = title;
+
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(generateOpenGraphTags, 100);
+});
+</script>
